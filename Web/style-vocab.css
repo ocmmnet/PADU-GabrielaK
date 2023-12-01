@@ -1,0 +1,136 @@
+/* Vocab page */
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #ffffff; /* Couleur de fond */
+  color: black; /* Couleur de texte */
+  padding: 10px;
+  text-align: left;
+  /*Bordure */
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+header img {
+  /* Padu logo */
+  max-height: 30px;
+  width: auto;
+}
+
+main {
+  flex: 1; /* force le main a prendre le reste de l'espace sur le plan vertical */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d14242;
+  flex-direction: column;
+}
+
+.numeroun {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5%;
+  border-bottom: 5px solid #5e1026;
+}
+.titrep {
+  font-size: x-large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-se;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 30%;
+  background-color: #5e1026;
+  text-align: center;
+  border: 3px solid #5e1026;
+  border-radius: 40%;
+  color: #f4c3bb;
+}
+
+.titre {
+  text-align: center;
+}
+.particularites {
+  color: #5e1026;
+  background-color: #f4c3bb;
+  border-radius: 10%;
+  border: 20px solid black;
+  border-color: #5e1026;
+  margin: 5%;
+  padding: 2%;
+  text-align: justify;
+  font-size: x-large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.chapitre:hover {
+  transform: scale(1.1);
+}
+
+.chapitre {
+  flex-direction: column;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.chapitres {
+  position: sticky;
+  top: 0;
+}
+
+.img-chapitre {
+  max-height: 100px;
+  width: auto;
+}
+@media screen and (max-width: 600px) {
+  .img-chapitre {
+    max-width: 100px;
+  }
+}
+
+.politesse {
+  text-align: center;
+  display: inline-flex;
+  padding: 2%;
+  border: 20% solid #5e1026;
+  border-radius: 5%;
+  margin: 0px;
+  box-sizing: border-box;
+  font-size: larger;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: #5e1026;
+  color: #f4c3bb;
+}
+
+.titremj {
+  font-size: x-large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-se;
+  margin-top: 30%;
+  background-color: #5e1026;
+  text-align: center;
+  border: 3px solid #5e1026;
+  border-radius: 40%;
+  color: #f4c3bb;
+}
+
+.tothetop {
+  position: fixed;
+  bottom: 1%;
+  right: 1%;
+}
+
+.img-tothetop {
+  max-height: 150px;
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.img-tothetop:hover {
+  transform: scale(1.1);
+}

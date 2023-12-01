@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Padu</title>
+    <link rel="stylesheet" href="style-jeu.css" />
+  </head>
+
+  <body>
+    <header>
+      <a class="button" href="accueil.html">
+        <img src="logo.png" alt="logo" />
+      </a>
+    </header>
+    <main>
+      <section class="question">
+        <p class="quest"></p>
+      </section>
+      <section class="reponses-container">
+        <div class="reponses-box" onclick="verifReponse(this)">
+          <p></p>
+        </div>
+        <div class="reponses-box" onclick="verifReponse(this)">
+          <p></p>
+        </div>
+        <div class="reponses-box" onclick="verifReponse(this)">
+          <p></p>
+        </div>
+        <div class="reponses-box" onclick="verifReponse(this)">
+          <p></p>
+        </div>
+      </section>
+
+      <div class="score">
+        <h5>SCORE</h5>
+        <p id="score"></p>
+      </div>
+    </main>
+    <footer>
+      <div class="aide">
+        <a href="aide.html">
+          <button>Aide !</button>
+        </a>
+      </div>
+    </footer>
+    <script>
+      const quizData = [
+        {
+          question: "Comment on dit bonjour en Polonais ?",
+          reponses: ["Helo", "Na zdrowie", "Dzien dobry", "Do widzenia"],
+          bonneReponse: "Dzien dobry",
+        },
+        {
+          question: "Comment on dit cent cinquante trois en Polonais ?",
+          reponses: [
+            "sto piedziesiat trzy",
+            "tysiac sto dwa",
+            "trzydziesci trzy",
+            "sto siedemdziesiat cztery",
+          ],
+          bonneReponse: "sto piedziesiat trzy",
+        },
+        {
+          question: "Comment on dit Bienvenue en Polonais ?",
+          reponses: ["Jak sie masz", "Do jutra", "Smacznego", "Witam/y"],
+          bonneReponse: "Witam/y",
+        },
+        {
+          question: "Comment on dit Mai en Polonais ?",
+          reponses: ["May", "Marzec", "Masz", "Maj"],
+          bonneReponse: "Maj",
+        },
+        {
+          question:
+            "Comment demande t-on le numero de quelqu'un en polonais  ?",
+          reponses: [
+            "Mogłabym / mógłbym dostać twojego snapa?",
+            "Mogłabym / mógłbym dostać twój numer telefonu?",
+            "Mogłabym / mógłbym usunac twój numer telefonu?",
+            "Jaki masz telefon?",
+          ],
+          bonneReponse: "Mogłabym / mógłbym dostać twój numer telefonu?",
+        },
+        {
+          question: "Comment on dit Jeudi en Polonais ?",
+          reponses: ["Cztery", "Czekaj", "Czwartek", "Czosnek"],
+          bonneReponse: "Czwartek",
+        },
+        {
+          question: "Comment on demande le nom de quelqu'un en Polonais ?",
+          reponses: [
+            "Dajesz rade",
+            "Z kąd jesteś?",
+            "Jak się nazywasz?",
+            "Jak się masz ?",
+          ],
+          bonneReponse: "Jak się nazywasz?",
+        },
+        {
+          question: "Comment on dit Des amis en Polonais ?",
+          reponses: ["Chłopak", "Koledzy", "Pazdziernik", "Przyjaciele"],
+          bonneReponse: "Przyjaciele",
+        },
+        {
+          question: "Comment on dit Merci en Polonais ?",
+          reponses: ["Dziękuję", "Narazie", "Rozumiem", "Dziesięć"],
+          bonneReponse: "Dziękuję",
+        },
+        {
+          question: "Comment on dit Dix en Polonais ?",
+          reponses: ["Dziewięć", "Dziesięć", "Dziękuję", "Dziewczyna"],
+          bonneReponse: "Dziesięć",
+        },
+        {
+          question: "Comment on demande si quelqu'un va bien en Polonais ?",
+          reponses: [
+            "Z kąd jesteś?",
+            "Jaką masz prace ?",
+            "Podoba ci sie ?",
+            "Jak się masz ?",
+          ],
+          bonneReponse: "Jak się masz ?",
+        },
+        {
+          question: "Comment on dit Avril en Polonais ?",
+          reponses: ["Kwiecien", "Trzysta", "Wrzesien", "Wtorek"],
+          bonneReponse: "Kwiecien",
+        },
+        {
+          question: "Comment on dit mille en Polonais ?",
+          reponses: ["Trzysta", "Tysiąc", "Trzynaście", "Twój"],
+          bonneReponse: "Tysiąc",
+        },
+      ];
+      let indexQuestion = 0;
+      let score = 0;
+      function chargerScore() {
+        // va chercher l'element Score par son ID
+        // il le met a jour en fonction de la variable score
+        var element = document.getElementById("score");
+        element.textContent = score.toString(); // applique la conversion de la variable score en chaeine de caractere
+      }
+
+      function chargerQuestion() {
+        const questionBox = document.getElementsByClassName("quest")[0];
+        const reponsesBoxes = document.querySelectorAll(".reponses-box");
+
+        console.log("question N :" + indexQuestion);
+
+        const question = quizData[indexQuestion];
+
+        questionBox.textContent = question.question;
+
+        reponsesBoxes.forEach((reponse, index) => {
+          reponse.firstChild.textContent = question.reponses[index];
+          reponse.classList.remove("reponse-vrai", "reponse-fausse");
+          reponse.classList.add("reponses-box");
+        });
+      }
+
+      function verifReponse(reponsesBox) {
+        if (
+          quizData[indexQuestion].bonneReponse ==
+          reponsesBox.firstChild.textContent
+        ) {
+          reponsesBox.classList.add("reponse-vrai");
+          reponsesBox.classList.remove("reponses-box");
+          score++;
+          chargerScore();
+        } else {
+          reponsesBox.classList.add("reponse-fausse");
+          reponsesBox.classList.remove("reponses-box");
+          let reponsesBoxes = document.querySelectorAll(".reponses-box");
+          reponsesBoxes.forEach((repBox) => {
+            if (
+              quizData[indexQuestion].bonneReponse ==
+              repBox.firstChild.textContent
+            ) {
+              console.log("one match", quizData[indexQuestion].bonneReponse);
+              repBox.classList.add("reponse-vrai");
+              repBox.classList.remove("reponses-box");
+            }
+          });
+        }
+        setTimeout(verifFin, 2000);
+      }
+
+      function verifFin() {
+        let reponsesBoxes = document.querySelectorAll(".reponse-vrai");
+        reponsesBoxes.forEach((repBox) => {
+          repBox.classList.add("reponses-box");
+          repBox.classList.remove("reponse-vrai");
+        });
+        reponsesBoxes = document.querySelectorAll(".reponse-fausse");
+        reponsesBoxes.forEach((repBox) => {
+          repBox.classList.add("reponses-box");
+          repBox.classList.remove("reponse-fausse");
+        });
+
+        indexQuestion++;
+        if (indexQuestion < quizData.length) {
+          chargerQuestion();
+        } else {
+          alert(`Le quizz est fini ! Votre Score ${score}`);
+          window.location.href = "accueil.html";
+        }
+      }
+
+      function initialisationJeu() {
+        score = 0;
+        indexQuestion = 0;
+        chargerScore();
+        chargerQuestion();
+      }
+
+      initialisationJeu();
+    </script>
+  </body>
+</html>

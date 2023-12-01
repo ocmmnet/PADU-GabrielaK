@@ -1,0 +1,144 @@
+/* jeux page */
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #ffffff; /* Couleur de fond */
+  color: black; /* Couleur de texte */
+  padding: 10px;
+  text-align: left;
+  /*Bordure */
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+header img {
+  /* Padu logo */
+  max-height: 30px;
+  width: auto;
+}
+
+.reponses-box {
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.reponses-box:hover {
+  transform: scale(1.1);
+}
+
+main {
+  flex: 1; /* force le main a prendre le reste de l'espace sur le plan vertical */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d14242;
+  flex-direction: column;
+  gap: 10px;
+}
+
+footer {
+  margin: 0px;
+  max-height: 40px;
+  height: 30px;
+  background-color: #d14242; /* Couleur de fond */
+  color: #fff; /* Couleur de texte */
+  padding: 5px;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+.question {
+  font-size: x-large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: #f4c3bb;
+  text-align: center;
+  border: 20px solid #5e1026;
+  color: #5e1026;
+  padding-left: 30vw;
+  padding-right: 30vw;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  margin-bottom: 30;
+}
+
+.quest {
+  flex-grow: 2;
+}
+
+.reponses-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #5e1026;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.reponse-vrai {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: #4e8042;
+  border: 20px solid #042e04;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #042e04;
+  border-radius: 50%;
+  min-width: 40%;
+  height: auto;
+}
+
+.reponse-fausse {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: #fa0d05;
+  border: 20px solid #760202;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #0c0c0c;
+  border-radius: 50%;
+  min-width: 40%;
+  height: auto;
+}
+
+.reponses-box {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: #f4c3bb;
+  border: 20px solid #5e1026;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #5e1026;
+  border-radius: 50%;
+  min-width: 40%;
+  height: auto;
+}
+
+.score {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: #f4c3bb;
+  border: 20px solid #5e1026;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #5e1026;
+  border-radius: 50%;
+  height: auto;
+  position: fixed;
+  bottom: 50px;
+  right: 10px;
+  font-size: x-large;
+  padding: 1%;
+  padding-top: 0%;
+  padding-bottom: 0%;
+}
+
+.aide {
+  background-color: #5e1026;
+}
